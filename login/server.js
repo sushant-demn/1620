@@ -1,13 +1,22 @@
 //creating a server
-
-const { text } = require("express");
+const fs = require('fs');
+const path = require('path');
 let http = require("http");
-const { type } = require("os");
 
 
 
 http.createServer(function (req , res)  {
-    res.writeHead(200 , {'content-Type' : index.html});
+    const filepath = path.join(__dirname, 'index.html');
 
-    res.end('This is the Example of the node.js app \n');
+    fs.readFileSync(filepath ,(err , data)=>{
+        if(err){
+            res.writeHead(500, {'Content-Type' : 'text/html'});
+            res.end("Error: Unable to fetch html file");
+        }   
+        else{
+            res.writeHead(200, {'Content-Type' : 'text/html'});
+            res.end(data);
+        }
+    }
+)   
 }).listen(8080 , () => console.log('Server is running at http://127.0.0.1:8080/'));

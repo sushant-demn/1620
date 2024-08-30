@@ -3,9 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>"Nothing to see"</title>
+    <title>City Hospital</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #006699;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        nav {
+            background-color: #003366;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .hero {
+            background-image: url('hospital.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 48px;
+            margin: 0;
+        }
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .services, .doctors, .contact {
+            background-color: white;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #006699;
+        }
+        footer {
+            background-color: #003366;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-    <h1>This is a basic Web page</h1>
+
+    <header>
+        <h1>Welcome to City Hospital</h1>
+        <p>Your health, our priority</p>
+    </header>
+
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Services</a>
+        <a href="#">Doctors</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <div class="hero">
+        <h1>Providing Compassionate Care Since 1990</h1>
+    </div>
+
+    <div class="container">
+        <section class="services">
+            <h2>Our Services</h2>
+            <ul>
+                <li>Emergency Care</li>
+                <li>Surgical Services</li>
+                <li>Outpatient Services</li>
+                <li>Laboratory Testing</li>
+            </ul>
+        </section>
+
+        <section class="doctors">
+            <h2>Meet Our Doctors</h2>
+            <ul>
+                <li>Dr. John Smith - Cardiologist</li>
+                <li>Dr. Sarah Johnson - Pediatrician</li>
+                <li>Dr. Emily Davis - Orthopedic Surgeon</li>
+                <li>Dr. Michael Brown - General Practitioner</li>
+            </ul>
+        </section>
+
+        <section class="contact">
+            <h2>Contact Us</h2>
+            <p>Address: 123 Main St, Cityville</p>
+            <p>Phone: (123) 456-7890</p>
+            <p>Email: info@cityhospital.com</p>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 City Hospital. All rights reserved.</p>
+    </footer>
+
 </body>
 </html>
