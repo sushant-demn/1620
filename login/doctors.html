@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Doctors - City Hospital</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #006699;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        nav {
+            background-color: #003366;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #006699;
+        }
+        .doctor-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .doctor {
+            width: 30%;
+            background-color: #f9f9f9;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .doctor img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+        footer {
+            background-color: #003366;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Meet Our Doctors</h1>
+    </header>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/services">Services</a>
+        <!-- <a href="/doctors">Doctors</a> -->
+        <a href="/contact">Contact</a>
+    </nav>
+
+    <div class="container">
+        <section class="doctor-list">
+            <div class="doctor">
+                <img src="doctor1.jpg" alt="Dr. John Smith">
+                <h3>Dr. John Smith</h3>
+                <p>Cardiologist</p>
+                <p>Dr. Smith is an expert in cardiovascular health, specializing in the diagnosis and treatment of heart diseases.</p>
+            </div>
+            <div class="doctor">
+                <img src="doctor2.jpg" alt="Dr. Sarah Johnson">
+                <h3>Dr. Sarah Johnson</h3>
+                <p>Pediatrician</p>
+                <p>Dr. Johnson provides care for infants, children, and adolescents, focusing on their overall health and well-being.</p>
+            </div>
+            <div class="doctor">
+                <img src="doctor3.jpg" alt="Dr. Emily Davis">
+                <h3>Dr. Emily Davis</h3>
+                <p>Orthopedic Surgeon</p>
+                <p>Specializing in the musculoskeletal system, Dr. Davis helps patients with bone, joint, and muscle issues.</p>
+            </div>
+            <div class="doctor">
+                <img src="doctor4.jpg" alt="Dr. Michael Brown">
+                <h3>Dr. Michael Brown</h3>
+                <p>General Practitioner</p>
+                <p>Dr. Brown offers primary care services, ensuring the general health and well-being of his patients.</p>
+            </div>
+            <!-- Add more doctors as needed -->
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 City Hospital. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
