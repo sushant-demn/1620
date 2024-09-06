@@ -3,9 +3,9 @@ const express = require('express');
 const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
 const app = express();
-const cors = require('cors');
-app.use(cors());
 app.use(express.json());
+const cors = require('cors');    
+app.use(cors());
 
 const SECRET_KEY = process.env.SECRET_KEY;
 
@@ -95,7 +95,7 @@ app.post('/queue-position', async (req, res) => {
 });
 
 // Start the server
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
