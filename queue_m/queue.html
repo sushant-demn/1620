@@ -40,7 +40,7 @@
     </header>
     
     <main>
-        Welcome To <h1><b>Vaidya</b></h1>
+        <h1><b>Vaidya</b></h1>
         <h2>OPD Queuing</h2>
         <form action="#" method="POST">
             <label for="user">Name:</label>
@@ -48,42 +48,39 @@
     
             <label for="contact">Contact No. :</label>
             <input type="text" id="contact" name="contact" required>
-    
-            
         </form>
-        <table class = "table">
+
+        <table class="table">
             <thead>
-                <tr id="row`1">
+                <tr>
                     <th>Department</th>
-                    <th>In_Queue</th>
+                    <th>Currently in Queue</th> <!-- New column for current queue count -->
                     <th>Waiting Duration</th>
                     <th>OPD Days</th>
                     <th>Select</th>
                 </tr>
-                
             </thead>
-            <tr>
-                <td id="queue-pediatric">Pediatric</td>
-                <td>12</td>
-                <td>60 Mins</td>
-                <td>Mon-Sat</td>
-                <td><input type="radio" id="Pediatric" name="OPD" value="Pediatric"></td>
-                
-            </tr> 
-            
-            <tr></tr>
-            <td id="queue-physician">Physician</td>
-            <td>12</td>
-            <td>60 Mins</td>
-            <td>Mon-Sat</td>
-            <td><input type="radio" id="Pediatric" name="OPD" value="Physician"></td>
-            </tr>
-        
+            <tbody>
+                <tr>
+                    <td id="queue-pediatric">Pediatric</td>
+                    <td id="queue-count-pediatric">Loading...</td> <!-- Dynamic count will go here -->
+                    <td>60 Mins</td>
+                    <td>Mon-Sat</td>
+                    <td><input type="radio" id="Pediatric" name="OPD" value="Pediatric"></td>
+                </tr> 
+                <tr>
+                    <td id="queue-physician">Physician</td>
+                    <td id="queue-count-physician">Loading...</td> <!-- Dynamic count will go here -->
+                    <td>60 Mins</td>
+                    <td>Mon-Sat</td>
+                    <td><input type="radio" id="Physician" name="OPD" value="Physician"></td>
+                </tr>
+            </tbody>
         </table>
-        <button type="button" onclick="generateToken()">Book Now</button>
-        
-    </main>
-    <script src = 'queue.js'></script>
 
+        <button type="button" onclick="generateToken()">Book Now</button>
+    </main>
+
+    <script src="queue.js"></script>
 </body>
 </html>

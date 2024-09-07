@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:5000'; 
+const API_URL = 'http://localhost:5000';
 async function viewQueue() {
     try {
         const response = await fetch(`${API_URL}/queue`, {
@@ -21,21 +21,18 @@ async function viewQueue() {
                 const srNoCell = document.createElement('td');
                 srNoCell.textContent = index + 1;
                 row.appendChild(srNoCell);
-
+                //create a cell for namecell
+                const Namecell = document.createElement('td');
+                Namecell.textContent = person.name1;
+                row.appendChild(Namecell);
+                // Create a cell for contact
+                const contact = document.createElement('td');
+                contact.textContent = person.contact;
+                row.appendChild(contact);
                 // Create a cell for Department
                 const departmentCell = document.createElement('td');
                 departmentCell.textContent = person.department;
                 row.appendChild(departmentCell);
-
-                // // Create a cell for Served checkbox
-                // const servedCell = document.createElement('td');
-                // const checkbox = document.createElement('input');
-                // checkbox.type = 'checkbox';
-                // checkbox.id = 'Served';
-                // checkbox.name = 'Served';
-                // checkbox.value = 'yes';
-                // servedCell.appendChild(checkbox);
-                // row.appendChild(servedCell);
 
                 // Create a cell for Delete button
                 const deleteCell = document.createElement('td');
