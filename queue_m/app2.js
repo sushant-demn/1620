@@ -16,15 +16,15 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopol
     .catch((err) => console.error('Could not connect to MongoDB', err));
 
 // Define a Schema and Model for Queue
-const queueSchema = new mongoose.Schema({
+const departmentQueueSchema = new mongoose.Schema({
     department: String,
     token: String,
     timestamp: { type: Date, default: Date.now }
 });
-const departmentQueueSchema = new mongoose.Schema({
-    department: String,
-    count: { type: Number, default: 0 }
-});
+// const departmentQueueSchema = new mongoose.Schema({
+//     department: String,
+//     count: { type: Number, default: 0 }
+// });
 
 const userSchema = new mongoose.Schema({
     username: { type: String, unique: true, required: true },
@@ -37,7 +37,7 @@ const User = mongoose.model('User', userSchema);
 const DepartmentQueue = mongoose.model('DepartmentQueue', departmentQueueSchema);
 
 
-const Queue = mongoose.model('Queue', queueSchema);
+// const Queue = mongoose.model('Queue', queueSchema);
 
 // API to generate a token and add a person to the queue
 app.post('/generate-token', async (req, res) => {
@@ -52,7 +52,7 @@ app.post('/generate-token', async (req, res) => {
         const token = jwt.sign({ department, timestamp: Date.now() }, SECRET_KEY);
 
         // Save the token and department to the database
-        const queueEntry = new Queue({ department, token });
+        const queueEntry = new DepartmentQueue({ department, token });
         await queueEntry.save();
         //remove this after testing
         res.json({ token, message: `Token for ${department} department added to the queue` });
@@ -64,7 +64,7 @@ app.post('/generate-token', async (req, res) => {
 // API to get the current queue
 app.get('/queue', async (req, res) => {
     try {
-        const queue = await Queue.find().sort('timestamp');
+        const queue = await DepartmentQueue.find().sort('timestamp');
         res.json({ queue });
     } catch (error) {
         res.status(500).json({ message: "An error occurred", error });
@@ -74,19 +74,36 @@ app.get('/queue', async (req, res) => {
 // API to serve the next person in the queue
 app.post('/serve-next', async (req, res) => {
     try {
-        const nextPerson = await Queue.findOne().sort('timestamp');
+        const nextPerson = await DepartmentQueue.findOne().sort('timestamp');
         if (!nextPerson) {
             return res.status(400).json({ message: "No one is in the queue" });
         }
 
         // Remove the served person from the queue
-        await Queue.findByIdAndDelete(nextPerson._id);
+        await DepartmentQueue.findByIdAndDelete(nextPerson._id);
 
         res.json({ nextPerson });
     } catch (error) {
         res.status(500).json({ message: "An error occurred", error });
     }
 });
+
+app.delete('/queue/:token', async (req, res) => {
+    const { token } = req.params;
+
+    try {
+        const result = await DepartmentQueue.findOneAndDelete({ token });
+
+        if (result) {
+            res.status(200).json({ message: 'Entry deleted successfully' });
+        } else {
+            res.status(404).json({ message: 'Entry not found' });
+        }
+    } catch (error) {
+        res.status(500).json({ message: 'An error occurred', error });
+    }
+});
+
 
 // API to get the position of a token in the queue
 app.post('/queue-position', async (req, res) => {
@@ -97,7 +114,7 @@ app.post('/queue-position', async (req, res) => {
     }
 
     try {
-        const allQueue = await Queue.find().sort('timestamp');
+        const allQueue = await DepartmentQueue.find().sort('timestamp');
         const position = allQueue.findIndex(person => person.token === token);
 
         if (position === -1) {
@@ -107,6 +124,28 @@ app.post('/queue-position', async (req, res) => {
         res.json({ position: position + 1 });
     } catch (error) {
         res.status(500).json({ message: "An error occurred", error });
+    }
+});
+app.get('/queue-counts', async (req, res) => {
+    try {
+        const departments = await DepartmentQueue.find({}, 'department');
+        res.json({ department});
+    } catch (error) {
+        res.status(500).json({ message: "An error occurred", error });
+    }
+});
+
+app.get('/api/department-queue', async (req, res) => {
+    try {
+        // Fetch all documents from the DepartmentQueue collection
+        const departmentQueueData = await DepartmentQueue.find({}, 'department token'); 
+        // `find` with the second argument specifies the fields to include (`department` and `token`), 
+        // while excluding the `_id` field.
+
+        // Send the data as a response
+        res.json(departmentQueueData);
+    } catch (error) {
+        res.status(500).json({ message: "An error occurred while fetching data", error });
     }
 });
 

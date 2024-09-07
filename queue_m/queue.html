@@ -42,6 +42,15 @@
     <main>
         Welcome To <h1><b>Vaidya</b></h1>
         <h2>OPD Queuing</h2>
+        <form action="#" method="POST">
+            <label for="user">Name:</label>
+            <input type="text" id="name" name="name" required>
+    
+            <label for="contact">Contact No. :</label>
+            <input type="text" id="contact" name="contact" required>
+    
+            
+        </form>
         <table class = "table">
             <thead>
                 <tr id="row`1">
@@ -54,7 +63,7 @@
                 
             </thead>
             <tr>
-                <td>Pediatric</td>
+                <td id="queue-pediatric">Pediatric</td>
                 <td>12</td>
                 <td>60 Mins</td>
                 <td>Mon-Sat</td>
@@ -63,7 +72,7 @@
             </tr> 
             
             <tr></tr>
-            <td>Physician</td>
+            <td id="queue-physician">Physician</td>
             <td>12</td>
             <td>60 Mins</td>
             <td>Mon-Sat</td>
@@ -72,6 +81,7 @@
         
         </table>
         <button type="button" onclick="generateToken()">Book Now</button>
+        
     </main>
     <script src = 'queue.js'></script>
 

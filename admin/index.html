@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OPD queue</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    tr:hover {
+        background-color: #f1f1f1;
+    }
+</style>
+<body>
+    <header class="head">
+        <nav class="navbar">
+            <div class="logo"><a href="#"><img src="Vaidya-03_short.png" alt="Logo"></a></div>
+            <ul class="nav-links">
+                <li><a href="#HOME">HOME</a></li>
+                <li><a href="#about us">ABOUT US</a></li>
+                <li><a href="#services">SERVICES</a></li>
+                <li><a class="active" href="#login/signup">LOGIN/SIGNUP</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <h2>Patients Queue</h2>
+        <table class = "table">
+        
+            <tr id="row`1">
+                <th>Sr. No</th>
+                <th>Patient_Name</th>
+                <th>Contact_Info</th>
+                <th>Department</th>
+                <th>Served</th>
+            </tr>
+           
+            <tr>
+                <td>1</td>
+                <td>Sushant</td>
+                <td>9376301696</td>
+                <td>Cardiology</td>
+                <td><input type="checkbox" id="Served" name="Served" value="yes"></td>
+            </tr> 
+            
+            <tr>
+                <td>2</td>
+                <td>Yasharth</td>
+                <td>9376301696</td>
+                <td>Pediatric</td>
+                <td><input type="checkbox" id="Served" name="Served" value="yes"></td>
+            </tr> 
+        
+        </table>
+    </main>
+    
+</body>
+</html>

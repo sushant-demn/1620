@@ -45,7 +45,7 @@ async function viewQueue() {
             queueList.innerHTML = ''; // Clear the list
             data.queue.forEach(person => {
                 const listItem = document.createElement('li');
-                listItem.textContent = `${person.name} - Token: ${person.token}`;
+                listItem.textContent = `${person.department} - Token: ${person.token}`;
                 queueList.appendChild(listItem);
             });
         } else {
