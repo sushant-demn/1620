@@ -43,9 +43,11 @@ async function viewQueue() {
         if (response.ok) {
             const queueList = document.getElementById('queueList');
             queueList.innerHTML = ''; // Clear the list
+
+            // Iterate over the queue and display department and token
             data.queue.forEach(person => {
                 const listItem = document.createElement('li');
-                listItem.textContent = `${person.name} - Token: ${person.token}`;
+                listItem.textContent = `Department: ${person.department} - Token: ${person.token}`;
                 queueList.appendChild(listItem);
             });
         } else {

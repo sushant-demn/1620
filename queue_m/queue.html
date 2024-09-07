@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vaidya</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    tr:hover {
+        background-color: #f1f1f1;
+    }
+</style>
+<body>
+    <header class="head">
+        <img src="Vaidya-03_short.png" alt="Vaidya Logo" width="150">
+        <nav>
+            <ul>
+                <li><a href="#HOME">HOME</a></li>
+                <li><a href="#contact">ABOUT US</a></li>
+                <li><a href="#news">SERVICES</a></li>
+                <li><a class="active" href="#home">LOGIN/SIGNUP</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        Welcome To <h1><b>Vaidya</b></h1>
+        <h2>OPD Queuing</h2>
+        <table class = "table">
+            <!-- <tr>
+                <th>Select</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Role</th>
+            </tr>
+             -->
+            <thead>
+                <tr id="row`1">
+                    <th>Department</th>
+                    <th>In_Queue</th>
+                    <th>Waiting Duration</th>
+                    <th>OPD Days</th>
+                    <th>Select</th>
+                </tr>
+                
+            </thead>
+            <tr>
+                <td>Pediatric</td>
+                <td>12</td>
+                <td>60 Mins</td>
+                <td>Mon-Sat</td>
+                <td><input type="radio" id="Pediatric" name="OPD" value="Pediatric"></td>
+                
+            </tr> 
+            
+            <tr></tr>
+            <td>Pediatric</td>
+            <td>12</td>
+            <td>60 Mins</td>
+            <td>Mon-Sat</td>
+            <td><input type="radio" id="Pediatric" name="OPD" value="Pediatric"></td>
+            </tr>
+        
+        </table>
+        <button type="button">Book Now</button>
+    </main>
+    
+</body>
+</html>
