@@ -77,6 +77,7 @@ async function checkPosition() {
         const data = await response.json();
         if (response.ok) {
             document.getElementById('positionResult').textContent = `Your position is: ${data.position}`;
+            document.getElementById
         } else {
             document.getElementById('positionResult').textContent = `Error: ${data.message}`;
         }

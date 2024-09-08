@@ -130,18 +130,24 @@ app.post('/queue-position', async (req, res) => {
 });
 app.get('/queue-counts', async (req, res) => {
     try {
+        // Fetch all departments from the DepartmentQueue collection
         const departments = await DepartmentQueue.find({}).lean();
-        const departmentqueue = await Promise.all(departments.map(async department => {
-            const queueCount = await name1.countDocuments({ department_id: department._id //status: 'in_queue' 
-                });
-            return { department: department.name, queueCount };
+
+        // Iterate through each department and calculate the queue count
+        const departmentQueueCounts = await Promise.all(departments.map(async department => {
+            // Assuming you want to count all documents associated with this department
+            const queueCount = await DepartmentQueue.countDocuments({ department: department.department });
+            return { department: department.department, queueCount };
         }));
 
-        res.json({ departmentqueue });
+        // Respond with the calculated queue counts
+        res.json(departmentQueueCounts);
     } catch (error) {
+        console.error('Error fetching queue counts:', error); // Log the error for debugging
         res.status(500).json({ message: 'Error fetching queue counts' });
     }
 });
+
 app.get('/api/department-queue', async (req, res) => {
     try {
         // Fetch all documents from the DepartmentQueue collection

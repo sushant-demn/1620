@@ -59,7 +59,7 @@ const API_URL = 'http://localhost:5000'; // Change this to your backend URL
 async function generateToken() {
     // Get all radio buttons with the name 'OPD'
     const radios = document.querySelectorAll('input[name="OPD"]');
-    
+
     // Find the checked radio button
     let selectedDepartment = null;
     radios.forEach((radio) => {
@@ -82,13 +82,11 @@ async function generateToken() {
     }
     try {
         // Get the current name and contact from the input fields
-        let currentname = document.getElementById('name').value;
-        let currentcontact = document.getElementById('contact').value;
-        
+
         // Log the values for debugging
         console.log(currentname);
         console.log(currentcontact);
-        
+
         // Send the POST request to generate a token
         const response = await fetch(`${API_URL}/generate-token`, {
             method: 'POST',
@@ -111,40 +109,77 @@ async function generateToken() {
         alert('Error connecting to server');
     }
 }
-async function fetchAndUpdateQueueCounts() {
-    console.log("fucntion called");
+// async function fetchAndUpdateQueueCounts() {
+//     console.log("function called");
+//     try {
+//         console.log("Triggered");
+//         const response = await fetch(`${API_URL}/queue-counts`, {
+//             method: 'GET',
+//             headers: {
+//                 'Content-Type': 'application/json'
+//             }
+//         });
+
+//         const data = await response.json();
+//         // console.log(data);
+//         // console.log(data.department);
+//         // document.getElementById('queue-count-pediatric').textContent = ;
+//         // document.getElementById('queue-count-physician').textContent = 50;
+//         if (response.ok) {
+//             console.log("response is ok");
+//             // Update queue counts for each department dynamically
+//             data.departmentqueue.forEach(department => {
+//                 if (department.department === 'Pediatric') {
+//                     document.getElementById('queue-count-pediatric').textContent = 13;
+//                     // department.queueCount;
+//                 } else if (department.department === 'Physician') {
+//                     document.getElementById('queue-count-physician').textContent = 50;
+//                     // department.queueCount;
+//                 }
+//             });
+//         } else {
+//             console.error('Error fetching queue counts:', data.message);
+//         }
+//     } catch (error) {
+//         console.error('Error connecting to server:', error);
+//     }
+// }
+
+// Function to fetch queue counts from the API
+async function fetchQueueCounts() {
     try {
-        console.log("Triggered");
+        // Fetch data from the API
         const response = await fetch(`${API_URL}/queue-counts`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
             }
         });
+        const departmentQueueCounts = await response.json();
+        console.log(departmentQueueCounts);
 
-        const data = await response.json();
-        if (response.ok) {
-            console.log("response is ok");
-            // Update queue counts for each department dynamically
-            data.departmentqueue.forEach(department => {
-                if (department.department === 'Pediatric') {
-                    document.getElementById('queue-count-pediatric').textContent = "13";
-                    //department.queueCount;
-                } else if (department.department === 'Physician') {
-                    document.getElementById('queue-count-physician').textContent = "50";
-                    //department.queueCount;
-                }
-            });
-        } else {
-            console.error('Error fetching queue counts:', data.message);
-        }
+        // Iterate over the received data and update the HTML
+        departmentQueueCounts.forEach(department => {
+            if (department.department === 'Pediatric') {
+                console.log(1);
+                document.getElementById('queue-count-pediatric').textContent = department.queueCount;
+            } else if (department.department === 'Physician') {
+                console.log(2);
+                document.getElementById('queue-count-physician').textContent = department.queueCount;
+            }
+            // Add more conditions if you have additional departments
+        });
     } catch (error) {
-        console.error('Error connecting to server:', error);
+        console.error('Error fetching queue counts:', error);
     }
 }
 
+// Call the function to fetch and display the queue counts
+fetchQueueCounts();
+
+
 // Fetch queue counts initially and then every 60 seconds
-fetchAndUpdateQueueCounts();
-setInterval(fetchAndUpdateQueueCounts, 60000); // 60 seconds interval
+// fetchAndUpdateQueueCounts();
+setInterval(fetchQueueCounts, 60000); // 60 seconds interval
 // Function to view the current queue
-window.onload = fetchAndUpdateQueueCounts();
+window.onload = fetchQueueCounts();
