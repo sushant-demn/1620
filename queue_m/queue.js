@@ -86,7 +86,12 @@ async function fetchQueueCounts() {
             } else if (department.department === 'Orthopedics') {
                 console.log(5);
                 document.getElementById('queue-count-orthopedics').textContent = department.queueCount;
-            } 
+            } else {
+                document.getElementById('queue-count-pediatric').textContent = 0;
+                document.getElementById('queue-count-physician').textContent = 0;
+                document.getElementById('queue-time-physician').textContent = 0 + " mins";
+                document.getElementById('queue-time-pediatric').textContent = 0 + " mins";
+            }
             // Add more conditions if you have additional departments
         });
     } catch (error) {
