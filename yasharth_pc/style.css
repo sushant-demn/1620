@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+/* Apply the font to the entire document */
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Style the navigation bar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fffdfd;
+    margin-top: 5px;
+    padding: 10px;
+    box-shadow: 0 7px 14px rgba(0, 0, 0, 0.2);
+}
+
+/* Style the logo */
+.logo img {
+    width: 150px;
+    height: auto;
+}
+
+/* Style the navigation links */
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    color: #0070ff;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.nav-links a:hover {
+    color: rgb(0, 65, 150);
+}
+
+.heading {
+    font-size: 36px;
+    /* Adjust the font size */
+    color: #0070ff;
+    /* Green text color */
+    text-align: center;
+    /* Center the text */
+    text-transform: uppercase;
+    /* Uppercase text */
+    letter-spacing: 2px;
+    /* Spacing between letters */
+    margin-top: 50px;
+    /* Top margin */
+    margin-bottom: 30px;
+    border: px solid #939393;
+    /* Bottom border */
+    padding-bottom: 1px;
+    /* Padding below the text */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    /* Collapses borders into a single border */
+    margin: 20px 0;
+    font-size: 18px;
+    text-align: center;
+}
+
+th,
+td {
+    padding: 12px;
+    /* Adds padding to table cells */
+    border: 1px solid #ddd;
+    /* Adds a border to table cells */
+}
+
+th {
+    background-color: #f2f2f2;
+    /* Light grey background for headers */
+    color: #333;
+    /* Dark text color for headers */
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+    /* Light grey background for even rows */
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    background-color: #ffffff;
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 18px;
+    color: #fff;
+    background-color: #0070ff;
+    /* Blue background */
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0959c1;
+}
+
+.textbox {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    /* Adjust the top padding as needed */
+    background-color: #f0f0f0;
+    /* Light grey background */
+    height: 20px;
+    /* Full viewport height */
+    margin-bottom: 5%;
+}
+
+.form-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px; /* Adjust the gap as needed */
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    
+}
+
+.form-group label {
+    width: 100px;
+    /* Adjust as needed */
+    text-align: right;
+    margin-right: 10px;
+}
+
+.form-group input {
+    width: 200px;
+    height: 30px;
+    /* Adjust the width as needed */
+}
+
+.input {
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    height: fit-content;
+    width: 150px;
+    /* Adjust the width as needed */
+    margin-bottom: 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow */
+}
