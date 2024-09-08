@@ -1,6 +1,4 @@
 const API_URL = 'http://localhost:5000';
-//commited // Change this to your backend URL
-
 // Function to generate a token and add a person to the queue
 async function generateToken() {
     const name = document.getElementById('name').value;
