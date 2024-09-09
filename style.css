@@ -1,0 +1,20 @@
+table{
+    border: solid black;
+    background-color: rgb(212, 208, 208);
+}
+
+ul{
+    list-style-type: none;
+    float: right;
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+li a{
+    margin: 0;
+    padding: 8px
+}
+
+li{
+    display: inline;
+}
