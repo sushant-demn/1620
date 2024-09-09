@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:5000';
+const API_URL = 'http://192.168.1.100:5000';
 async function viewQueue() {
     try {
         const response = await fetch(`${API_URL}/queue`, {
@@ -77,7 +77,7 @@ async function deleteRow(token) {
 }
 
 // Run the function every 60 seconds (60000 ms)
-setInterval(viewQueue, 60000);
+setInterval(viewQueue, 1000);
 
 // Call the function immediately to load data on page load
 window.onload = viewQueue;

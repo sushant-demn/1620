@@ -1,5 +1,60 @@
-const API_URL = 'http://localhost:5000'; // Change this to your backend URL
+const API_URL = 'http://192.168.1.100:5000'; // Change this to your backend URL
 
+// async function VerfiyUser(){
+//     const username = document.getElementById('name').value;
+//     const password = document.getElementById('password').value;
+//     if (!username || !password) {
+//         alert('Please enter your username and password');
+//         return;
+//     }
+//     try {
+//         const response = await fetch(`${API_URL}/register`, {
+//             method: 'POST',
+//             headers: {
+//                 'Content-Type': 'application/json'
+//             },
+//             body: JSON.stringify({ username, password })
+//         });
+
+//         const data = await response.json();
+//         if (response.ok) {
+//             alert(`Welcome ${username}`);
+//         } else {
+//             alert(`Error: ${data.message}`);
+//         }
+//     } catch (error) {
+//         alert('Error connecting to server');
+//     }
+
+// }
+// async function AddUser(){
+
+//     const username = document.getElementById('name').value;
+//     const password = document.getElementById('password').value;
+//     if (!username || !password) {
+//         alert('Please enter your username and password');
+//         return;
+//     }
+//     try {
+//         const response = await fetch(`${API_URL}/register`, {
+//             method: 'POST',
+//             headers: {
+//                 'Content-Type': 'application/json'
+//             },
+//             body: JSON.stringify({ username, password })
+//         });
+
+//         const data = await response.json();
+//         if (response.ok) {
+//             alert(`Welcome ${username}`);
+//         } else {
+//             alert(`Error: ${data.message}`);
+//         }
+//     } catch (error) {
+//         alert('Error connecting to server');
+//     }
+
+// }
 // Function to generate a token and add a person to the queue
 async function generateToken() {
     // Get all radio buttons with the name 'OPD'
@@ -74,25 +129,27 @@ async function fetchQueueCounts() {
             if (department.department === 'Pediatric') {
                 console.log(1);
                 document.getElementById('queue-count-pediatric').textContent = department.queueCount;
+                document.getElementById('queue-time-pediatric').textContent = (department.queueCount) * 10 + " mins";
             } else if (department.department === 'Physician') {
                 console.log(2);
                 document.getElementById('queue-count-physician').textContent = department.queueCount;
-            } else if (department.department === 'Cardiology') {
-                console.log(3);
-                document.getElementById('queue-count-cardiology').textContent = department.queueCount;
-            } else if (department.department === 'Gynecology') {
-                console.log(4);
-                document.getElementById('queue-count-gynecology').textContent = department.queueCount;
-            } else if (department.department === 'Orthopedics') {
-                console.log(5);
-                document.getElementById('queue-count-orthopedics').textContent = department.queueCount;
-            } else {
-                document.getElementById('queue-count-pediatric').textContent = 0;
-                document.getElementById('queue-count-physician').textContent = 0;
-                document.getElementById('queue-time-physician').textContent = 0 + " mins";
-                document.getElementById('queue-time-pediatric').textContent = 0 + " mins";
+                document.getElementById('queue-time-physician').textContent = (department.queueCount) * 6 + " mins";
             }
-            // Add more conditions if you have additional departments
+            else if (department.department === 'Cardiology') {
+                console.log(2);
+                document.getElementById('queue-count-cardiology').textContent = department.queueCount;
+                document.getElementById('queue-time-cardiology').textContent = (department.queueCount) * 7 + " mins";
+            }
+            else if (department.department === 'Gynecology') {
+                console.log(2);
+                document.getElementById('queue-count-gynecology').textContent = department.queueCount;
+                document.getElementById('queue-time-gynecology').textContent = (department.queueCount) * 10 + " mins";
+            }
+            else if (department.department === 'Orthopedics') {
+                console.log(2);
+                document.getElementById('queue-count-orthopedics').textContent = department.queueCount;
+                document.getElementById('queue-time-orthopedics').textContent = (department.queueCount) * 7 + " mins";
+            }
         });
     } catch (error) {
         console.error('Error fetching queue counts:', error);
@@ -102,9 +159,7 @@ async function fetchQueueCounts() {
 // Call the function to fetch and display the queue counts
 fetchQueueCounts();
 
-
 // Fetch queue counts initially and then every 60 seconds
-// fetchAndUpdateQueueCounts();
-setInterval(fetchQueueCounts, 60000); // 60 seconds interval
+setInterval(fetchQueueCounts, 1000); // 60 seconds interval
 // Function to view the current queue
-window.onload = fetchQueueCounts(); 
+window.onload = fetchQueueCounts();
