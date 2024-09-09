@@ -133,6 +133,7 @@ async function fetchQueueCounts() {
             } else if (department.department === 'Physician') {
                 console.log(2);
                 document.getElementById('queue-count-physician').textContent = department.queueCount;
+<<<<<<< HEAD
                 document.getElementById('queue-time-physician').textContent = (department.queueCount) * 6 + " mins";
             }
             else if (department.department === 'Cardiology') {
@@ -149,6 +150,29 @@ async function fetchQueueCounts() {
                 console.log(2);
                 document.getElementById('queue-count-orthopedics').textContent = department.queueCount;
                 document.getElementById('queue-time-orthopedics').textContent = (department.queueCount) * 7 + " mins";
+=======
+            } else if (department.department === 'Cardiology') {
+                console.log(3);
+                document.getElementById('queue-count-cardiology').textContent = department.queueCount;
+            } else if (department.department === 'Gynecology') {
+                console.log(4);
+                document.getElementById('queue-count-gynecology').textContent = department.queueCount;
+            } else if (department.department === 'Orthopedics') {
+                console.log(5);
+                document.getElementById('queue-count-orthopedics').textContent = department.queueCount;
+            } else {
+                document.getElementById('queue-count-pediatric').textContent = 0;
+                document.getElementById('queue-count-physician').textContent = 0;
+                document.getElementById('queue-count-cardiology').textContent = 0;
+                document.getElementById('queue-count-gynecology').textContent = 0;
+                document.getElementById('queue-count-orthopedics').textContent = 0;
+
+                document.getElementById('queue-time-physician').textContent = 0 + " mins";
+                document.getElementById('queue-time-pediatric').textContent = 0 + " mins";
+                document.getElementById('queue-time-cardiology').textContent = 0 + " mins";
+                document.getElementById('queue-time-gynecology').textContent = 0 + " mins";
+                document.getElementById('queue-time-orthopedics').textContent = 0 + " mins";
+>>>>>>> 275ef985b5935dd4e1f694c74eec76ac574d3af0
             }
         });
     } catch (error) {

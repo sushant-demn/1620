@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vaidya</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+        /* Apply the font to the entire document */
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Style the navigation bar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fffdfd;
+            margin: 1%;
+            padding: 10px;
+            border-bottom: 3px solid #000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Style the logo */
+        .logo img {
+            width: 150px;
+            height: auto;
+        }
+
+        /* Style the navigation links */
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin: 0 15px;
+        }
+
+        .nav-links a {
+            color: #0070ff;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .nav-links a:hover {
+            color: rgb(0, 65, 150);
+        }
+
+        .heading {
+            font-size: 36px;
+            color: #0070ff;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 50px;
+            margin-bottom: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 18px;
+            text-align: left;
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            background-color: #f0f0f0;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 18px;
+            color: #fff;
+            background-color: #0070ff;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0959c1;
+        }
+
+        .textbox {
+            display: flex;
+            justify-content: center;
+            padding-top: 20px;
+            background-color: #f0f0f0;
+            height: 20px;
+        }
+
+        .input {
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            width: 150px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .nav-links li {
+                margin: 10px 0;
+            }
+
+            .logo img {
+                width: 120px;
+            }
+
+            .heading {
+                font-size: 28px;
+                margin-top: 30px;
+                margin-bottom: 20px;
+            }
+
+            .input {
+                width: 100%;
+            }
+
+            table {
+                font-size: 14px;
+            }
+
+            th, td {
+                padding: 8px;
+            }
+
+            button {
+                width: 100%;
+                padding: 10px 20px;
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar {
+                padding: 5px;
+            }
+
+            .nav-links a {
+                font-size: 14px;
+            }
+
+            .heading {
+                font-size: 24px;
+            }
+
+            .textbox {
+                flex-direction: column;
+            }
+
+            table {
+                font-size: 12px;
+            }
+
+            button {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="head">
+        <nav class="navbar">
+            <div class="logo"><a href="#"><img src="Vaidya-03_short.png" alt="Logo"></a></div>
+            <ul class="nav-links">
+                <li><a href="#HOME">HOME</a></li>
+                <li><a href="#about us">ABOUT US</a></li>
+                <li><a href="#services">SERVICES</a></li>
+                <a href="#User">USER</a>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2 class="heading">OPD Queuing</h2>
+        <div class="textbox">
+            <label for="Name">Name: </label>
+            <input class="input" type="text" name="Name" placeholder="Enter your Name">
+            <label for="Age">Age: </label>
+            <input class="input" type="number" name="Age" placeholder="Enter your Age">
+        </div>
+
+        <table class="table">
+            <tr id="row1">
+                <th>Department</th>
+                <th>In_Queue</th>
+                <th>Waiting Duration</th>
+                <th>OPD Days</th>
+                <th>Select</th>
+            </tr>
+            <tr>
+                <td>Cardiology</td>
+                <td>Loading...</td>
+                <td>Loading...</td>
+                <td>Mon, Wed, Fri</td>
+                <td><input type="radio" id="Cardiology" name="OPD" value="Cardiology"></td>
+            </tr>
+            <tr>
+                <td>Pediatric</td>
+                <td>Loading...</td>
+                <td>Loading...</td>
+                <td>Mon-Sat</td>
+                <td><input type="radio" id="Pediatric" name="OPD" value="Pediatric"></td>
+            </tr>
+            <tr>
+                <td>Physician</td>
+                <td>Loading...</td>
+                <td>Loading...</td>
+                <td>Mon-Sat</td>
+                <td><input type="radio" id="Physician" name="OPD" value="Physician"></td>
+            </tr>
+            <tr>
+                <td>Orthopedics</td>
+                <td>Loading...</td>
+                <td>Loading...</td>
+                <td>Mon-Sat</td>
+                <td><input type="radio" id="Orthopedics" name="OPD" value="Orthopedics"></td>
+            </tr>
+            <tr>
+                <td>Gynecology</td>
+                <td>Loading...</td>
+                <td>Loading...</td>
+                <td>Tue, Thu, Sat</td>
+                <td><input type="radio" id="Gynecology" name="OPD" value="Gynecology"></td>
+            </tr>
+        </table>
+        <div class="container">
+            <button type="submit">Book Now</button>
+        </div>
+    </main>
+</body>
+
+</html>
