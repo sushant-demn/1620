@@ -89,8 +89,15 @@ async function fetchQueueCounts() {
             } else {
                 document.getElementById('queue-count-pediatric').textContent = 0;
                 document.getElementById('queue-count-physician').textContent = 0;
+                document.getElementById('queue-count-cardiology').textContent = 0;
+                document.getElementById('queue-count-gynecology').textContent = 0;
+                document.getElementById('queue-count-orthopedics').textContent = 0;
+
                 document.getElementById('queue-time-physician').textContent = 0 + " mins";
                 document.getElementById('queue-time-pediatric').textContent = 0 + " mins";
+                document.getElementById('queue-time-cardiology').textContent = 0 + " mins";
+                document.getElementById('queue-time-gynecology').textContent = 0 + " mins";
+                document.getElementById('queue-time-orthopedics').textContent = 0 + " mins";
             }
             // Add more conditions if you have additional departments
         });
