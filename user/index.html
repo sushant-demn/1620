@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vaidya</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+        /* Apply the font to the entire document */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Style the navigation bar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fffdfd;
+            margin-top: 5px;
+            padding: 10px;
+            box-shadow: 0 7px 14px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Style the logo */
+        .logo img {
+            width: 150px;
+            height: auto;
+        }
+
+        /* Style the navigation links */
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin: 0 15px;
+        }
+
+        .nav-links a {
+            padding: 10px 15px;
+            color: #0070ff;
+            transition: color 0.3s ease, background-color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #fff;
+            background-color: rgb(0, 65, 150);
+            border-radius: 5px;
+        }
+
+        .heading {
+            font-size: 36px;
+            /* Adjust the font size */
+            color: #0070ff;
+            /* Green text color */
+            text-align: center;
+            /* Center the text */
+            text-transform: uppercase;
+            /* Uppercase text */
+            letter-spacing: 2px;
+            /* Spacing between letters */
+            margin-top: 50px;
+            /* Top margin */
+            margin-bottom: 30px;
+            border: px solid #939393;
+            /* Bottom border */
+            padding-bottom: 1px;
+            /* Padding below the text */
+        }
+
+        table {
+            margin: 20px auto;
+            border-spacing: 0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            /* Reduce the width a bit for better spacing */
+        }
+
+        th,
+        td {
+            padding: 20px 15px;
+            /* Increased padding for more space */
+            text-align: center;
+        }
+
+        th {
+            background-color: #0070ff;
+            color: #fff;
+            text-transform: uppercase;
+            font-size: 18px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #e6f0ff;
+            transition: background-color 0.3s ease;
+        }
+
+
+        .container {
+            display: flex;
+            justify-content: center;
+            background-color: #ffffff;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 18px;
+            color: #fff;
+            background-color: #0070ff;
+            border-radius: 30px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #005bb5;
+            transform: translateY(-2px);
+        }
+
+        .textbox {
+            display: flex;
+            justify-content: center;
+            padding-top: 20px;
+            /* Adjust the top padding as needed */
+            background-color: #f0f0f0;
+            /* Light grey background */
+            height: 20px;
+            /* Full viewport height */
+            margin-bottom: 5%;
+        }
+
+        .form-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+
+        .form-group {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+
+        }
+
+        .form-group label {
+            width: 100px;
+            /* Adjust as needed */
+            text-align: right;
+            margin-right: 10px;
+        }
+
+        .form-group input {
+            width: 250px;
+            height: 35px;
+            padding: 5px 10px;
+            font-size: 16px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus {
+            border-color: #0070ff;
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 112, 255, 0.5);
+        }
+
+        .input {
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            height: fit-content;
+            width: 150px;
+            /* Adjust the width as needed */
+            margin-bottom: 30px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            /* Subtle shadow */
+        }
+    </style>
+
+</head>
+
+<body>
+    <header class="head">
+        <nav class="navbar">
+            <div class="logo"><a href="#"><img src="Vaidya-03_short.png" alt="Logo"></a></div>
+            <ul class="nav-links">
+                <li><a href="#HOME">HOME</a></li>
+                <li><a href="#about us">ABOUT US</a></li>
+                <li><a href="#services">SERVICES</a></li>
+                <li><a href="#User">USER</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2 class="heading">OPD Queuing</h2>
+        <form class="form-container">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" placeholder="Enter your Name">
+            </div>
+
+            <div class="form-group">
+                <label for="Contact">Contact No:</label>
+                <input type="text" id="contact" placeholder="Enter your Contact No.">
+            </div>
+        </form>
+
+
+        <table class="table">
+
+            <tr id="row`1">
+                <th>Department</th>
+                <th>Patients Queued</th>
+                <th>Waiting Duration</th>
+                <th>OPD Days</th>
+                <th>Select</th>
+            </tr>
+            <tbody>
+            <tr>
+                <td id="queue-cardiology">Cardiology</td>
+                <td id="queue-count-cardiology">Loading...</td>
+                <td id="queue-time-cardiology">Loading...</td>
+                <td>Mon, Wed, Fri</td>
+                <td><input type="radio" id="Cardiology" name="OPD" value="Cardiology"></td>
+            </tr>
+
+            <tr>
+                <td id="queue-pediatric">Pediatric</td>
+                <td id="queue-count-pediatric">Loading...</td>
+                <td id="queue-time-pediatric">Loading...</td>
+                <td>Mon-Sat</td>
+                <td><input type="radio" id="Pediatric" name="OPD" value="Pediatric"></td>
+            </tr>
+
+            <tr>
+                <td id="queue-physician">Physician</td>
+                <td id="queue-count-physician">Loading...</td>
+                <td id="queue-time-physician">Loading...</td>
+                <td>Mon-Sat</td>
+                <td><input type="radio" id="Physician" name="OPD" value="Physician"></td>
+            </tr>
+
+            <tr>
+                <td id="queue-orthopedics">Orthopedics</td>
+                <td id="queue-count-orthopedics">Loading...</td>
+                <td id="queue-time-orthopedics">Loading...</td>
+                <td>Mon-Sat</td>
+                <td><input type="radio" id="Orthopedics" name="OPD" value="Orthopedics"></td>
+            </tr>
+
+            <tr>
+                <td id="queue-gynecology">Gynecology</td>
+                <td id="queue-count-gynecology">Loading...</td>
+                <td id="queue-time-gynecology">Loading...</td>
+                <td>Tue, Thu, Sat</td>
+                <td><input type="radio" id="Gynecology" name="OPD" value="Gynecology"></td>
+            </tr>
+        </tbody>
+        </table>
+
+        <div class="container">
+            <button type="button" onclick="generateToken()">Book Now</button>
+        </div>
+
+    </main>
+
+    <script src="queue.js"></script>
+
+</body>
+
+</html>
