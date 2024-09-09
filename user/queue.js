@@ -46,7 +46,7 @@ async function generateToken() {
         });
         const data = await response.json();
         if (response.ok) {
-            alert(`Token generated for ${selectedDepartment}: ${data.token}`);
+            alert(`Successfully Booked a slot ${selectedDepartment}`);
         } else {
             alert(`Error: ${data.message}`);
         }

@@ -50,6 +50,7 @@ async function generateToken() {
         } else {
             alert(`Error: ${data.message}`);
         }
+
     } catch (error) {
         alert('Error connecting to server');
     }
@@ -58,13 +59,6 @@ async function generateToken() {
 
 // Function to fetch queue counts from the API
 async function fetchQueueCounts() {
-    const departments = ['Pediatric', 'Physician', 'Cardiology', 'Gynecology', 'Orthopedics'];
-    
-    // Reset all departments' queue count and time to 0
-    departments.forEach(department => {
-        document.getElementById(`queue-count-${department}`).textContent = 0;
-        document.getElementById(`queue-time-${department}`).textContent = 0;
-    });
     try {
         // Fetch data from the API
         const response = await fetch(`${API_URL}/queue-counts`, {
@@ -79,10 +73,10 @@ async function fetchQueueCounts() {
 
         // Iterate over the received data and update the HTML
         departmentQueueCounts.forEach(department => {
-            if (department.department === 'Pediatric') {
+            if (department.department === 'Pediatric'){
                 console.log(1);
-                document.getElementById('queue-count-pediatric').textContent = department.queueCount - 1;
-                document.getElementById('queue-time-pediatric').textContent = ((department.queueCount - 1)*10);
+                document.getElementById('queue-count-pediatric').textContent = department.queueCount;
+                document.getElementById('queue-time-pediatric').textContent = ((department.queueCount)*10);
             } else if (department.department === 'Physician') {
                 console.log(2);
                 document.getElementById('queue-count-physician').textContent = department.queueCount;
@@ -108,11 +102,11 @@ async function fetchQueueCounts() {
 }
 
 // Call the function to fetch and display the queue counts
-fetchQueueCounts();
+// fetchQueueCounts();
 
 
 // Fetch queue counts initially and then every 60 seconds
 // fetchAndUpdateQueueCounts();
-setInterval(fetchQueueCounts, 1000); // 60 seconds interval
+// setInterval(fetchQueueCounts, 1000); // 60 seconds interval
 // Function to view the current queue
-window.onload = fetchQueueCounts(); 
+// window.onload = fetchQueueCounts(); 
