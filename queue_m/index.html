@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Queueing System</title>
+</head>
+<body>
+    <h1>Queueing System</h1>
+
+    <div>
+        <input type="text" id="name" placeholder="Enter your name" />
+        <button onclick="generateToken()">Get Queue Token</button>
+    </div>
+
+    <div>
+        <button onclick="viewQueue()">View Current Queue</button>
+        <ul id="queueList"></ul>
+    </div>
+
+    <div>
+        <input type="text" id="token" placeholder="Enter your token" />
+        <button onclick="checkPosition()">Check Position</button>
+        <p id="positionResult"></p>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

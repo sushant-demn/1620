@@ -108,6 +108,54 @@ app.delete('/queue/:token', async (req, res) => {
 
 
 // API to get the position of a token in the queue
+// app.post('/queue-position', async (req, res) => {
+//     const { token } = req.body;
+
+//     if (!token) {
+//         return res.status(400).json({ message: "Token is required" });
+//     }
+
+//     try {
+//         const allQueue = await DepartmentQueue.find().sort('timestamp');
+//         const position = allQueue.findIndex(person => person.token === token);
+
+//         if (position === -1) {
+//             return res.status(400).json({ message: "Token not found in queue" });
+//         }
+
+//         res.json({ position: position + 1 });
+//     } catch (error) {
+//         res.status(500).json({ message: "An error occurred", error });
+//     }
+// });
+
+// app.post('/queue-position', async (req, res) => {
+//     const { token } = req.body;
+
+//     if (!token) {
+//         return res.status(400).json({ message: "Token is required" });
+//     }
+
+//     try {
+//         const allQueue = await DepartmentQueue.find().sort('timestamp');
+//         const person = allQueue.find(person => person.token === token);
+
+//         if (!person) {
+//             return res.status(400).json({ message: "Token not found in queue" });
+//         }
+
+//         const position = allQueue.findIndex(p => p.token === token) + 1;
+
+//         res.json({
+//             name: person.name1,
+//             department: person.department,
+//             position
+//         });
+//     } catch (error) {
+//         res.status(500).json({ message: "An error occurred", error });
+//     }
+// });
+
 app.post('/queue-position', async (req, res) => {
     const { token } = req.body;
 
@@ -116,18 +164,30 @@ app.post('/queue-position', async (req, res) => {
     }
 
     try {
-        const allQueue = await DepartmentQueue.find().sort('timestamp');
-        const position = allQueue.findIndex(person => person.token === token);
+        // Find the person with the given token
+        const person = await DepartmentQueue.findOne({ token });
 
-        if (position === -1) {
+        if (!person) {
             return res.status(400).json({ message: "Token not found in queue" });
         }
 
-        res.json({ position: position + 1 });
+        // Get all people in the same department, sorted by timestamp
+        const departmentQueue = await DepartmentQueue.find({ department: person.department }).sort('timestamp');
+
+        // Find the position of the person in the department queue
+        const position = departmentQueue.findIndex(p => p.token === token) + 1;
+
+        res.json({
+            name: person.name1,
+            department: person.department,
+            position
+        });
     } catch (error) {
         res.status(500).json({ message: "An error occurred", error });
     }
 });
+
+
 app.get('/queue-counts', async (req, res) => {
     try {
         // Fetch all departments from the DepartmentQueue collection
