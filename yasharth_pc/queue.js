@@ -1,4 +1,4 @@
-const API_URL = 'http://192.168.1.100:5000'; // Change this to your backend URL
+const API_URL = 'http://lo:5000'; // Change this to your backend URL
 
 // async function VerfiyUser(){
 //     const username = document.getElementById('name').value;
